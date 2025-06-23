@@ -15,26 +15,30 @@
         <light directional="true" diffuse=".4 .4 .4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false"/>
         <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1"/>
         <geom name="ground" type="plane" size="0 0 1" pos="0.001 0 0" quat="1 0 0 0" material="matplane" condim="1" conaffinity='15'/>
-        <body pos="0 0 0.1" quat="0.7071 0.7071 0 0">
+
+        <body pos="0 0 0.1" euler="90 0 0">
             <joint type="free"/>
             <geom type="mesh" mesh="base"/>
-                <body pos="0.0702 -0.021 0.040293" quat="0.7071 0 0.7071  0">
-                    <joint type="hinge" axis="0 0 1"/>
-                    <geom type="mesh" mesh="wheel"/>
-                </body>
-                <body pos="-0.0702 -0.021 0.040293" quat="-0.7071 0 0.7071  0">
-                    <joint type="hinge" axis="0 0 1"/>
-                    <geom type="mesh" mesh="wheel"/>
-                </body>
-                <body pos="0.0 0.014 0.035" quat="-0.7071 0 0.7071  0">
-                    <joint type="hinge" axis="0 0 1" pos=" 0.0 0.006 0.0"/>
-                    <geom type="mesh" mesh="pipe"/>
-                </body>
-                <body pos="0.0 -0.023 -0.045" quat="-0.7071 0 0.7071  0">
-                    <joint type="ball"/>
-                    <geom name="ball" size="0.023" rgba="0.0 0.0 0.0 1.0"/>
-                </body>
-        </body>
 
+            <body pos="0.0702 -0.021 0.040293" euler="0 90 0">
+                <joint type="hinge" axis="0 0 1"/>
+                <geom type="mesh" mesh="wheel"/>
+            </body>
+
+            <body pos="-0.0702 -0.021 0.040293" euler="0 270 0">
+                <joint type="hinge" axis="0 0 1"/>
+                <geom type="mesh" mesh="wheel"/>
+            </body>
+
+            <body pos="0.0 0.014 0.035" euler="0 -90 0">
+                <joint type="hinge" axis="0 0 1" pos="0.0 0.006 0.0"/>
+                <geom type="mesh" mesh="pipe"/>
+            </body>
+
+            <body pos="0.0 -0.024 -0.045" euler="0 -90 0">
+                <joint type="ball"/>
+                <geom name="ball" size="0.022" rgba="0.0 0.0 0.0 1.0"/>
+            </body>
+        </body>
     </worldbody>
 </mujoco>
